@@ -34,6 +34,8 @@ func main() {
 		"http://127.0.0.1:3000",
 		"http://127.0.0.1:5173",
 		"http://127.0.0.1:8080",
+		"https://todo-backend-app-2024.azurewebsites.net", // Azure App Service
+		"https://*.azurewebsites.net",                     // All Azure App Service domains
 	}
 	config.AllowCredentials = true
 	config.AllowHeaders = []string{"Origin", "Content-Length", "Content-Type", "Authorization"}
