@@ -1,0 +1,4 @@
+language: go
+buildCommands:
+  - go build -o main.exe .
+startupCommand: ./main.exe 

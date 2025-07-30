@@ -8,13 +8,18 @@ echo "Starting Todo API backend service..."
 # Set the working directory
 cd /home/site/wwwroot
 
-# Build the application
-echo "Building Go backend API..."
-go build -o main .
-
-# Make the binary executable
-chmod +x main
-
-# Start the backend API service
-echo "Starting the backend API service on port $PORT..."
-./main 
+# Check if the binary exists
+if [ -f "main.exe" ]; then
+    echo "Found main.exe, starting the application..."
+    chmod +x main.exe
+    ./main.exe
+elif [ -f "main" ]; then
+    echo "Found main binary, starting the application..."
+    chmod +x main
+    ./main
+else
+    echo "Building the application..."
+    go build -o main .
+    chmod +x main
+    ./main
+fi 

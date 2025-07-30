@@ -80,14 +80,18 @@ jobs:
         - name: Create deployment package
           run: |
             mkdir -p deployment
-            cp main deployment/
+            cp main deployment/main.exe
             cp -r handlers deployment/
             cp -r models deployment/
             cp -r database deployment/
             cp -r middleware deployment/
             cp go.mod deployment/
             cp go.sum deployment/
+            cp .web.config deployment/
+            cp azure.yaml deployment/
             cp startup.sh deployment/
+            cp .deployment deployment/
+            chmod +x deployment/main.exe
             chmod +x deployment/startup.sh
 
         - name: Deploy backend API to Azure App Service
