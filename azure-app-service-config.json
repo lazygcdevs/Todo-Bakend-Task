@@ -1,0 +1,40 @@
+{
+  "name": "todo-api-app",
+  "resourceGroup": "todo-api-rg",
+  "location": "East US",
+  "plan": {
+    "name": "todo-api-plan",
+    "sku": "B1",
+    "os": "Linux"
+  },
+  "runtime": {
+    "stack": "GO",
+    "version": "1.23"
+  },
+  "configuration": {
+    "startupCommand": "./startup.sh",
+    "environmentVariables": {
+      "WEBSITES_ENABLE_APP_SERVICE_STORAGE": "true",
+      "PORT": "8080",
+      "GIN_MODE": "release"
+    },
+    "appSettings": [
+      {
+        "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
+        "value": "true"
+      },
+      {
+        "name": "PORT",
+        "value": "8080"
+      },
+      {
+        "name": "GIN_MODE",
+        "value": "release"
+      }
+    ]
+  },
+  "deployment": {
+    "method": "zip",
+    "source": "."
+  }
+} 
